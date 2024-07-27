@@ -18,11 +18,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .container {
-            text-align: center;
             color: white;
+            text-align: center;
         }
 
         h1 {
@@ -56,8 +53,6 @@
         .cake {
             position: absolute;
             top: -10%;
-            left: 50%;
-            transform: translateX(-50%);
             font-size: 2em;
             animation: fall 10s linear infinite;
         }
@@ -65,12 +60,13 @@
 </head>
 <body>
     <div class="container animate__animated animate__fadeIn">
-        <h1>Happy Birthday!</h1>
-        <p>Dear Wife,</p>
-        <p>Wishing you a day filled with love and happiness. You are the light of my life.</p>
-        <i class="fas fa-heart"></i>
-        <p>With all my love,</p>
-        <p>Your Husband</p>
+        <h1 class="animate__animated animate__fadeInDown">Happy Birthday!</h1>
+        <p class="animate__animated animate__fadeInLeft">Dear Wife,</p>
+        <p class="animate__animated animate__fadeInRight">Wishing you a day filled with love and happiness. You are the light of my life.</p>
+        <p class="animate__animated animate__fadeInUp">May your day be as special as you are. Happy birthday, my love!</p>
+        <i class="fas fa-heart animate__animated animate__heartBeat animate__infinite"></i>
+        <p class="animate__animated animate__fadeInUp">With all my love,</p>
+        <p class="animate__animated animate__fadeInDown">Your Husband</p>
     </div>
 
     <iframe width="0" height="0" src="https://www.youtube.com/embed/vI5plbWkQHk?autoplay=1&loop=1&playlist=vI5plbWkQHk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -83,9 +79,8 @@
         function createFallingCakes() {
             const container = document.querySelector('body');
             for (let i = 0; i < 20; i++) {
-                let cake = document.createElement('div');
-                cake.classList.add('cake');
-                cake.textContent = '🎂';
+                let cake = document.createElement('i');
+                cake.classList.add('fas', 'fa-birthday-cake', 'cake');
                 cake.style.left = Math.random() * 100 + 'vw';
                 cake.style.animationDelay = Math.random() * 10 + 's';
                 container.appendChild(cake);
