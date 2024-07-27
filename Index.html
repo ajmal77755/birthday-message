@@ -3,148 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, My Love</title>
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <style>
         body, html {
-            height: 100%;
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            background-color: pink;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            position: relative;
-            animation: bgTransition 5s forwards;
         }
-        @keyframes bgTransition {
-            0% {
-                background-color: black;
-            }
-            100% {
-                background-color: pink;
-            }
-        }
+
         .container {
             text-align: center;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
+            color: white;
         }
+
         h1 {
-            font-size: 3em;
+            font-family: 'Great Vibes', cursive;
+            font-size: 4em;
             margin: 0;
-            opacity: 0;
-            animation: fadeIn 3s forwards 2s;
         }
+
         p {
             font-size: 1.5em;
-            margin: 20px 0 0 0;
-            opacity: 0;
-            animation: fadeIn 3s forwards 4s;
+            margin: 10px 0;
         }
-        .heart {
+
+        .fa-heart {
             color: red;
             font-size: 2em;
             animation: pulse 1s infinite;
-            opacity: 0;
-            animation: fadeIn 3s forwards 6s, pulse 1s infinite 6s;
         }
-        .date {
-            font-size: 2em;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            opacity: 0;
-            animation: fadeIn 3s forwards 8s;
-        }
-        .cake {
-            font-size: 4em;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeIn 3s forwards 10s;
-        }
-        .falling-cake {
-            position: absolute;
-            top: -50px;
-            left: calc(50% - 25px);
-            font-size: 2em;
-            animation: fall 5s infinite;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
+
         @keyframes fall {
-            0% {
-                top: -50px;
-                opacity: 1;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                top: 100%;
-                opacity: 0;
-            }
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
         }
-        .flower {
+
+        .cake {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            background: url('https://image.shutterstock.com/image-vector/flower-icon-vector-260nw-761010072.jpg') no-repeat center/cover;
-            opacity: 0;
-            animation: fadeIn 2s forwards 0s, float 5s infinite;
-        }
-        .flower1 {
-            top: 20%;
-            left: 5%;
-            animation-delay: 1s;
-        }
-        .flower2 {
-            top: 40%;
-            left: 10%;
-            animation-delay: 2s;
-        }
-        .flower3 {
-            top: 60%;
-            right: 5%;
-            animation-delay: 3s;
-        }
-        .flower4 {
-            top: 80%;
-            right: 10%;
-            animation-delay: 4s;
-        }
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+            animation: fall 10s linear infinite;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Happy Birthday, My Love</h1>
-        <p>You mean the world to me. Every moment with you is a treasure.</p>
-<p>Thank you peda honay k liye🐥</p>
-        <div class="heart">❤️</div>
-        <div class="cake">🎂</div>
-        <div class="date">27th July</div>
+    <div class="container animate__animated animate__fadeIn">
+        <h1>Happy Birthday!</h1>
+        <p>Dear Wife,</p>
+        <p>Wishing you a day filled with love and happiness. You are the light of my life.</p>
+        <i class="fas fa-heart"></i>
+        <p>With all my love,</p>
+        <p>Your Husband</p>
     </div>
-    <div class="flower flower1"></div>
-    <div class="flower flower2"></div>
-    <div class="flower flower3"></div>
-    <div class="flower flower4"></div>
-    <div class="falling-cake">🎂</div>
+
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/vI5plbWkQHk?autoplay=1&loop=1&playlist=vI5plbWkQHk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
     <script>
-        window.onload = function() {
-            document.querySelector('.container').style.opacity = 1;
-        };
+        document.addEventListener('DOMContentLoaded', function () {
+            createFallingCakes();
+        });
+
+        function createFallingCakes() {
+            const container = document.querySelector('body');
+            for (let i = 0; i < 20; i++) {
+                let cake = document.createElement('div');
+                cake.classList.add('cake');
+                cake.textContent = '🎂';
+                cake.style.left = Math.random() * 100 + 'vw';
+                cake.style.animationDelay = Math.random() * 10 + 's';
+                container.appendChild(cake);
+            }
+        }
     </script>
 </body>
 </html>
